@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import './App.css'
 import axios from 'axios'
-import { Employee } from './mocks/employee-data'
+import { baseUrl, Employee, employeesUrl } from './mocks/employee-data'
+import styles from './styles/container.module.css'
 
 const App = () => {
   const [employees, setEmployees] = useState<Employee[]>([])
@@ -13,7 +14,7 @@ const App = () => {
     try {
       setLoading(true)
       setError(false)
-      result = await axios.get('/api/employees')
+      result = await axios.get(`${baseUrl}${employeesUrl}`)
       setEmployees(result.data)
       setLoading(false)
     } catch (error) {
@@ -27,15 +28,17 @@ const App = () => {
     return () => {
       setEmployees([])
       setLoading(false)
+      setError(false)
     }
   }, [])
 
   return (
-    <div className='App'>
+    <div className='app'>
       <h1>Welcome</h1>
       {loading && <span>Loading...</span>}
+      {error && <span>Sorry there's been an error</span>}
       {employees.length > 0 && (
-        <div>
+        <div className={styles.container}>
           {employees.map((employee: Employee) => {
             return (
               <div key={employee.id}>

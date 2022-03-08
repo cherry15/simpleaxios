@@ -73,3 +73,9 @@ export const handlers = [
     return res(ctx.status(400))
   }),
 ]
+
+export const getEmloyeesException = rest.get<Employee[]>(
+  url,
+  async (req, res, ctx) =>
+    res(ctx.status(500), ctx.json({ message: 'Deliberately broken request' }))
+)
