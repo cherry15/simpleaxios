@@ -32,8 +32,8 @@ describe('App tests', () => {
 
 describe('Bad network', () => {
   test('shows error', async() => {
-    server.use(getEmloyeesException);
-    render(<App />);
+    server.use(getEmloyeesException)
+    render(<App />)
 
     const errorDisplay = await screen.findByText(`Sorry there's been an error`);
     expect(errorDisplay).toBeInTheDocument();
