@@ -8,7 +8,7 @@ In the command prompt or terminal clone the app
 
 #### `git clone https://github.com/cherry15/simpleaxios.git`
 
-CD into the directory
+CD into the folder
 
 #### `cd simpleaxios`
 
@@ -18,7 +18,7 @@ And install dependencies
 
 ## Available Scripts
 
-In the project directory, you can run:
+In the project folder, you can run:
 
 #### `npm start`
 
